@@ -55,8 +55,8 @@ for host in hosts:
         transactions.append(int(transaction['LastCommittedTxId'].rstrip('\n')))
         status_string += host + ":" + transaction['LastCommittedTxId'].rstrip('\n') + " "
     except KeyError, e:
-      print "UNKNOWN: Can't query JMX value from " + host
-      exit(3)
+        print "UNKNOWN: Can't query JMX value from " + host
+        exit(3)
 
 if max(transactions) == min(transactions):
     print "OK: " + status_string
